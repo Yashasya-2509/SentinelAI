@@ -1,0 +1,12 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    { "label": "Setup (venv + install)", "type": "shell",
+      "command": "python3 -m venv .venv && .venv/bin/pip install -U pip && .venv/bin/pip install -e \".[dev]\"" },
+    { "label": "Generate data + train", "type": "shell",
+      "command": "python scripts/generate_demo_data.py && python scripts/train_model.py" },
+    { "label": "Run tests", "type": "shell", "command": "python -m pytest -q", "group": "test" },
+    { "label": "Run API", "type": "shell", "command": "uvicorn sentinelai.api:app --reload --app-dir backend" },
+    { "label": "Run dashboard", "type": "shell", "command": "streamlit run dashboard/app.py" }
+  ]
+}

@@ -1,0 +1,5 @@
+anomaly_percentile: 97.0   # threshold = this percentile of benign training anomaly scores
+min_confidence: 0.60       # classifier confidence below this is flagged for review
+release_gate:
+  min_macro_f1: 0.80
+  max_benign_fpr: 0.05

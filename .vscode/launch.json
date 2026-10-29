@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    { "name": "Generate demo data", "type": "debugpy", "request": "launch",
+      "program": "${workspaceFolder}/scripts/generate_demo_data.py", "console": "integratedTerminal" },
+    { "name": "Train model", "type": "debugpy", "request": "launch",
+      "program": "${workspaceFolder}/scripts/train_model.py", "console": "integratedTerminal" },
+    { "name": "FastAPI (uvicorn)", "type": "debugpy", "request": "launch", "module": "uvicorn",
+      "args": ["sentinelai.api:app", "--reload", "--app-dir", "backend"], "jinja": true },
+    { "name": "Streamlit dashboard", "type": "debugpy", "request": "launch", "module": "streamlit",
+      "args": ["run", "dashboard/app.py"] }
+  ]
+}

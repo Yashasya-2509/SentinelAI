@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sentinelai"
+version = "0.1.0"
+description = "Intelligent threat detection and investigation system (defensive, network-flow ML)."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26",
+  "pandas>=2.1",
+  "scikit-learn>=1.4",
+  "joblib>=1.3",
+  "networkx>=3.2",
+  "pyyaml>=6.0",
+  "fastapi>=0.110",
+  "uvicorn>=0.27",
+  "python-multipart>=0.0.9",
+  "pydantic>=2.5",
+  "streamlit>=1.32",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "httpx>=0.27", "ruff>=0.4"]
+
+[tool.setuptools.packages.find]
+where = ["backend"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["backend"]
+
+[tool.ruff]
+line-length = 100
